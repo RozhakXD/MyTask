@@ -1,0 +1,95 @@
+:root {
+    --primary-color: #2563EB;
+    --success-color: #10B981;
+    --info-color: #3B82F6;
+    --text-color: #1F2937;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: var(--text-color);
+}
+
+.task-card {
+    background: white;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    transition: all 0.2s ease;
+    cursor: grab;
+    position: relative;
+}
+
+.task-card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--primary-color);
+    border-radius: 4px 0 0 4px;
+}
+
+.task-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.task-card[data-status="pending"]:before { background: #F59E0B; }
+.task-card[data-status="in progress"]:before { background: var(--info-color); }
+.task-card[data-status="done"]:before { background: var(--success-color); }
+
+.status-badge {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 20px;
+    background: #E5E7EB;
+    color: var(--text-color);
+}
+
+.board {
+    min-height: 70vh;
+}
+
+.tasks {
+    min-height: 200px;
+    background: #F9FAFB;
+    border-radius: 0 0 8px 8px;
+}
+
+.modal-header {
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.modal-title {
+    font-weight: 600;
+}
+
+.footer {
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.footer a:hover {
+    color: var(--primary-color) !important;
+}
+
+.footer i {
+    transition: transform 0.2s;
+}
+
+.footer i:hover {
+    transform: translateY(-2px);
+}
+
+@media (max-width: 992px) {
+    .board {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .card {
+        margin-bottom: 1.5rem;
+    }
+}
